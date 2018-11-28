@@ -401,7 +401,7 @@ function eypd_get_provinces() {
 function eypd_run_once() {
 
 	// change eypd_version value to run it again
-	$eypd_version        = 7.1;
+	$eypd_version        = 7.2;
 	$current_version     = get_option( 'eypd_version', 0 );
 	$img_max_dimension   = 1000;
 	$img_min_dimension   = 50;
@@ -492,7 +492,7 @@ function eypd_run_once() {
             <td>#_EVENTLINK
                 {has_location}<br/><i>#_LOCATIONNAME, #_LOCATIONTOWN #_LOCATIONSTATE</i>{/has_location}
             </td>
-			<td>#_ATT{Registration Space}</td>
+			<td>#_AVAILABLESPACES</td>
         </tr>';
 
 	$format_event_list_footer = '</tbody></table>';
@@ -508,7 +508,7 @@ function eypd_run_once() {
 					<td>
 						{has_location}#_EVENTLINK<br>#_LOCATIONNAME<br>#_LOCATIONTOWN, #_LOCATIONSTATE{/has_location}
 					</td>
-					<td>#_ATT{Registration Space}</td>
+					<td>#_AVAILABLESPACES</td>
 				</tr>';
 
 	$format_cat_list_footer = '</tbody></table>';
