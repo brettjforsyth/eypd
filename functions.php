@@ -916,6 +916,11 @@ add_action( 'em_event_validate', 'eypd_validate_attributes' );
  * Notes: this is a bit sketchy as it could let other events be registers
  * solves the No spaces booked: If the user tries to make a booking without requesting any spaces. error
  * If the booking_spaces are 0 it fails and this seems to be the condition when an event is past its end data.
+ * Adding in feedback_message === '' is due to the fact that in this particular instance, adding expired events,
+ * the routine fails on $EM_Ticket_Booking->validate() due to an error being added in $EM_Booking->validate because
+ * booking spaces = 0. Most other errors will generate a feedback_message of some kind but this one does no. This check
+ * was added to make this test more specific to this error condition. Potentially a future EM code change could make this
+ * invalid. I didn't want to just test on is_open as I am sure there are times when users will want to close the booking.
  */
 function eypd_validate_bookings() {
 	global $EM_Booking;
